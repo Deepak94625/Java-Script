@@ -2,7 +2,6 @@
 Deepak Singal
 ES6 Assignment #3 */
 
-
 function  men (name,ismortal) // creating a function to store the members 
 {
   let count = 0; // using a variable like a flag
