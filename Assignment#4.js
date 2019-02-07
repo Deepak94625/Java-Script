@@ -43,7 +43,7 @@ Man("Socrates",true);
 Man(123);
 Man("test2",false);
 let i ;
-if(array1.length !== null) // checking if the numbers of eligible members 
+if(array1.length !== null) // checking the numbers of eligible members 
   {
     console.log("All the below members are mortal")
     for(i=0;i<=array1.length-1;i++)
@@ -84,7 +84,7 @@ typeofcake = (arr , flavour1) =>
         }
     }
 }
-//generating a boolean to chekc if the flavour of the cake is choclate 
+//generating a boolean to check if the flavour of the cake is choclate 
 ischoclate= (arr1) => {
 if (arr1[0] === "choclate")
   {
