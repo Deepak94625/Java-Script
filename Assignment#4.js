@@ -1,182 +1,108 @@
-/*const sample1 = [1,2,3,4,5,6,7];
-const sample3 = 5;
 
-console.log("hello");
-
-const result = (sample2) => sample2.filter((num) => num===5);
-
-console.log(result(sample1));
-
-const result1 = (sample2) => sample2.filter((num) => num % 2 === 0);
-
-console.log(result1(sample1));
-
-
-const result3 = (sample2) => { 
-  const myarray=[];
-  sample2.forEach((n) => {
-    const n1 = n*10;
-    myarray.push(n1);
-});
-    return myarray;
-}
-                                             
-console.log(result3(sample1)); 
-
-
-//ES5
-
-function multiply (x,y)
-{
-  x=x || 5;
-  y=y || 10;
-  return x*y
-}
-
-
-console.log(multiply(10)) // -> it will work 
-
-//ES6
-
-// multiply1 = (x=5 , y = 10) => x*y ;
-
-//console.log(multiply1());
-
-const str1 = "i am a stering "
-strsplit = (str = str1) => str.split(" ");
-
-console.log(strsplit());
-
-const bankaccount = {
-  canspendmoney : true,
-  balance : 1000,
-  hascreditcard : true
-}
- purchaseitem = (price,acc = bankaccount) => 
-{
-  if (acc.canspendmoney)
-    {
-      acc.balance = acc.balance - price ;
-      if (acc.balance < 0)
-        {
-          return acc.canspendmoney = false;
-        }
-        else
-        {
-          return acc.canspendmoney = true;
-          //return acc.balance;
-        }
-      return acc.balance;
-    } 
-   return acc.balance;
-}
-
-console.log(purchaseitem(500));
-//console.log(bankaccount);
-console.log(purchaseitem(200));
-//console.log(bankaccount);
-console.log(purchaseitem(600));
-//console.log(bankaccount);
-//console.log(purchaseitem(600,{canspendmoney:true,balance:6000}));
-console.log(purchaseitem(600,{canspendmoney:false,balance:6000}));
-
-
-function f1(x,y,z)
-{
-  console.log(arguments)
-}
- 
-f1(5,6,7);
-
-function f2(x,y,z)
-{
- 
-  console.log(arguments)
-}
- 
-f2(5,6,7,10,8,9,5);
-
-function f3(x,y,z)
-{
-  const args = Array.prototype.slice.call(arguments,f3.length)
-  console.log(args)
-}
-
-f3(5,6,7,10,8,9,5);
-
-
-function f4(x)
-{
-  const args1 = Array.prototype.slice.call(arguments,f4.length)
-  console.log(args1.sort())
-}
-
-f4("hi","hello","deepak");
-
-//magic of es6
-
-f5 = (x,y,z,...num) => console.log(num.sort());
-f5(1,2,5,8,9,3,2)
-
-*/
-
-//f6 = (x,...num) => num.map((n)=> x*n);
-//console.log(f6(10,5,10,6,7));
-
-//Below code will not work 
 /*
-const dog = (years,breed) => {
-  this.years = age;
-    this.type = breed;
-}
+DEEPAK SINGAL 
+ES6 
 
-const spike = new dog(5,"golden");
-console.log(spike);
+*  Assignment: Homework Assignment #4: Functions. 
 */
 
-// Error dog can't be used as construction without using function keyword
 
 
+// isstring  used to check if the data type name is string
+isstring = (name) => {
 
-/*function Dog(years, breed)
+  if(typeof(name) === "string") 
+    {
+     // return true if it is a string 
+      return true;
+    }
+  else
+    {
+      // return false if it is not a string 
+      return false;
+    }
+}
+
+
+let array1 = new Array();  // using an array to pass all the eligible values 
+
+Man = (men , ismortal) => { // using a function to get all the eligible members
+  const check_type  = isstring(men); // validating datatype of the paased value 
+  if(check_type === true) // passed vaulue is a string 
+    {
+       if (men !== null && ismortal === true ) // checking if the passes value is man and mortal
+         {
+           array1.push(men);//pushing all the eligible members
+         }
+    }
+}
+
+Man("Deepak",true); // passing testcases 
+Man("Singal",true);
+Man("Socrates",true);
+Man(123);
+Man("test2",false);
+let i ;
+if(array1.length !== null) // checking if the numbers of eligible members 
+  {
+    console.log("All the below members are mortal")
+    for(i=0;i<=array1.length-1;i++)
+    {
+      console.log(array1[i]); // displaying all the eligible members 
+    }
+  }
+
+/*
+
+If you did the extra credit on Homework #3, let's turn that example into a function as well. It should accept in 2 arguments:
+
+1. An array of all cake possibilities (vanilla or chocolate)
+
+2. A boolean representing whether or not the cake is chocolate.
+
+It should return a string indicating the actual flavor of the cake.
+
+*/
+
+// an array of cake having flavour choclate and vanilla
+cake = ["choclate" , "vanilla"];
+
+//passing an array and boolean  in a function 
+
+typeofcake = (arr , flavour1) =>
 {
-  this.age = years;
-  this.type = breed;
+  if (arr.length > 0)
+    {
+      
+      if (flavour1 === true)
+      {
+          console.log("Flavour of the cake is choclate");
+      }
+      else
+        {
+          console.log("Flavour of the cake is Vanilla");
+        }
+    }
 }
-const spike = new Dog(5,"golden");
-console.log(spike);
-  
-  
-//console.log(this); -> chutiya hai saala 
-
-//time to play with Es5 and ES6
-
-//ES5
-*/
-
-function dog(years,breed) {
-  const that = this; // "this" is chutiya in es5 untill u use 'use strict'
-  that.age = years;
-  that.type= breed;
-  setInterval(function (){
-    that.age += 1;
-    //console.log(that);
-  },2000)
+//generating a boolean to chekc if the flavour of the cake is choclate 
+ischoclate= (arr1) => {
+if (arr1[0] === "choclate")
+  {
+    flavour = true;
+    if (arr1[1] === "choclate")
+      {
+        flavour = true;
+      }
+    typeofcake(arr1,flavour);
+  }
+else
+  {
+    flavour = false;
+    typeofcake(arr1,flavour);
+    return;
+  }
 }
-
-const spike = new dog(5,"golden");
-const spike1 = new dog(7,"golden");
-console.log(spike);
-console.log(spike1);
-
-
   
-
-
- 
-
-
-
-
-
+ischoclate(cake);
+  
 
