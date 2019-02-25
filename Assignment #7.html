@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<h1>Assigment#7</h1> 
+	<h2>Colors</h2>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Assigment#7</title>  
+</head>
+<body> 
+<div id = "color"> 
+</div>
+<script> 
+// using H1 tag to give the header 
+//usig header to give h2 tag 
+// using the script tag 
+// using tittle tag to give the tittle of the page
+// using a function to load the id of all the rectangles 
+// assigning the id to the tag 
+		let colors = ['#C0392B', '#9B59B6', '#2980B9','#1ABC9C', '#27AE60', '#F1C40F', '#E67E22', '#BDC3C7', '#7F8C8D','#2C3E50']; //using the the different colors code 
+	let rectangleWrapper = document.getElementById("color"); // creating a id as per the assignment 
+			rectangleWrapper.id = 'rectangleWrapper';		// changing the id tp rectanglewrapper
+	console.log("Here are the rectangle ID(s) ")
+	for (let i=0;i<10;i++)
+	{
+		const div1 = document.createElement("div"); // creating a tag div 
+		div1.style.padding = "50px 50px 0px 50px"; // diving the padding as per the assignment 
+		div1.style.background = colors[i]; // giving the color to 10 different rectangle 
+		div1.id = "rect# "+ i; // giving the ids to 10 rectangle  
+		div1.style.width = "50px"; // giving width of 50 px
+		console.log('rect# ' + i);
+		rectangleWrapper.appendChild(div1); // appendings rectangle to the div class
+		let text = document.createElement("H6"); 
+		text.innerHTML = colors[i]; // displaying the coor code 
+		rectangleWrapper.appendChild(text);// appending the color code to div tag 
+	}
+  </script>
+</body>
+</html>
+
