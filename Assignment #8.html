@@ -42,7 +42,7 @@
 	</div>
 	<script type="text/javascript">
       // using win as a flag 
-        let win = false;
+       
         //taking the div element of the html 
 		const container = document.getElementById("container");
         // getting all the buttons for (x and o)
@@ -56,6 +56,7 @@
         // function used in the event 
 		function logevent (event)
 		{
+			 let win = false;
 			let target = event.target;
 		// passing the value of x / o to the html page 
         	target.innerText = mark1;
@@ -147,7 +148,7 @@
             }    
             if (win === true)
             {
-                // if we gets a winner , it will disable the game 
+                // if we get a winner 
                 //console.log("hello");
 
         // Reset the game to its begining state
