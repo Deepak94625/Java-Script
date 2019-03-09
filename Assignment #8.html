@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Tic-Tac-Toe</title>
+    <style type="text/css">
+    {
+    	box-sizing: border-box;
+    }
+    
+    #container button
+    {
+    	color: rgb(0,0,0);
+    	border: 1px solid rgb(255,255,255);
+    	background-color: rgb(64, 189, 247);
+    	text-align: center;
+    }
+     #container 
+    {
+        margin: auto;
+        height: 300px;
+        width: 300px;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+    }  
+
+    </style>
+</head>
+<body>
+
+	<h2> Assignment #8 </h2>
+	<div id = "container">
+	<button id="1"> </button>
+	<button id="2"> </button>	
+	<button id="3"> </button>	
+	<button id="4"> </button>	
+	<button id="5"> </button>	
+	<button id="6"> </button>	
+	<button id="7"> </button>	
+	<button id="8"> </button>	
+	<button id="9"> </button>		
+	</div>
+	<script type="text/javascript">
+      // using win as a flag 
+        let win = false;
+        //taking the div element of the html 
+		const container = document.getElementById("container");
+        // getting all the buttons for (x and o)
+		const button = document.querySelectorAll("button");
+        // assuming the first player be x and making the first move 
+		let mark1 = "X";
+        // counting the no of clicks 
+		let counter = 1 ;
+        //trigerring the event
+		container.addEventListener("click", logevent);
+        // function used in the event 
+		function logevent (event)
+		{
+			let target = event.target;
+		// passing the value of x / o to the html page 
+        	target.innerText = mark1;
+			if (mark1 === "X")
+			{
+                //defing the color 
+				target.style.color = "red";
+                // player 2 chance
+				mark1 = "O";
+			}
+			else
+			{
+				target.style.color = "Blue";
+				// player 1 chance now 
+                mark1 = "X";
+			}
+			target.disabled = true ; 
+            // once clicked , it will not allow the user to click it again 
+			//button[parseInt(target.id)-1] = target ;
+			switch (parseInt(target.id) - 1) 
+			{
+                // checking all the possible combination for a win 
+        		case 0:
+            		if((button[0].innerText === button[1].innerText && button[1].innerText === button[2].innerText) || (button[0].innerText === button[3].innerText && button[3].innerText === button[6].innerText) || (button[0].innerText === button[4].innerText && button[4].innerText === button[8].innerText)) 
+            		{
+                        // displaying if x or o won 
+               			alert(target.innerText + " has won!");
+               			win = true;
+            		}
+            	break;
+        		case 1:
+            		if ((button[0].innerText === button[1].innerText && button[1].innerText === button[2].innerText) || (button[1].innerText === button[4].innerText && button[4].innerText === button[7].innerText)) 
+            		{
+                		alert(target.innerText + " has won!");
+                		win = true;
+            		}
+            	break;
+                case 2:
+                    if (((button[0].innerText === button[1].innerText && button[1].innerText === button[2].innerText)) || ((button[2].innerText === button[5].innerText && button[5].innerText === button[8].innerText)) || ((button[2].innerText === button[4].innerText && button[4].innerText === button[6].innerText)))
+                     {
+                        alert(target.innerText + " has won!");
+                        win = true;
+                    }
+                break;
+                case 3:
+                    if ((button[3].innerText === button[0].innerText && button[3].innerText === button[6].innerText) || (button[3].innerText === button[4].innerText && button[4].innerText === button[5].innerText)) 
+                    {
+                        alert(target.innerText + " has won!");
+                        win = true;
+                    }
+                break;
+                case 4:
+                    if ((button[4].innerText === button[1].innerText && button[4].innerText === button[8].innerText) || (button[4].innerText === button[1].innerText && button[4].innerText === button[7].innerText) || (button[4].innerText === button[2].innerText && button[4].innerText === button[6].innerText) || (button[4].innerText === button[3].innerText && button[4].innerText === button[5].innerText)) 
+                    {
+                        alert(target.innerText + " has won!");
+                        win = true;
+                    }
+                break;
+                case 5:
+                    if ((button[5].innerText === button[2].innerText && button[5].innerText === button[8].innerText) || (button[5].innerText === button[4].innerText && button[5].innerText === button[3].innerText)) 
+                    {
+                        alert(target.innerText + " has won!");
+                        win = true;
+                    }
+                break;
+                case 6:
+                    if ((button[6].innerText === button[3].innerText && button[6].innerText === button[0].innerText) || (button[6].innerText === button[4].innerText && button[6].innerText === button[2].innerText) || (button[6].innerText === button[7].innerText && button[6].innerText === button[8].innerText)) 
+                    {
+                        alert(target.innerText + " has won!");
+                        win = true;
+                    }
+                break;
+                case 7:
+                    if ((button[7].innerText === button[4].innerText && button[7].innerText === button[1].innerText) || (button[7].innerText === button[6].innerText && button[7].innerText === button[8].innerText)) 
+                    {
+                        alert(target.innerText + " has won!");
+                        win= true;
+                    }
+                break;
+                case 8:
+                    if ((button[8].innerText === button[6].innerText && button[8].innerText === button[7].innerText) || (button[8].innerText === button[0].innerText && button[8].innerText === button[4].innerText) || (button[8].innerText === button[2].innerText && button[8].innerText === button[5].innerText)) 
+                    {
+                        alert(target.innerText + " has won!");
+                        win = true;
+                    }
+                break;
+            default:
+                break;
+            }    
+            if (win === true)
+            {
+                // if we gets a winner , it will disable the game 
+                //console.log("hello");
+
+        // Reset the game to its begining state
+                button.forEach(element => 
+                {
+                 element.innerText = "";
+                 element.disabled = true;
+                });
+                //mark1 = "X";
+                //counter = 1;
+            } 
+            else
+                {
+                    // checking if all the clicks are made 
+                    if (counter === 9)
+                    {
+
+            // If all the empty spaces are clicked, a dialog box should appear and tell "Cats game!"
+                        alert("Cats game");
+
+            // Reset the game to its begining state
+                        button.forEach(element =>
+                        {
+                            element.innerText = "";
+                            element.disabled = false;
+                        });
+                        mark1 = "X";
+                        counter = 1;
+                    } 
+                    else 
+                    {
+            // Click on another empty space
+                        counter++;
+                    }
+            }
+	    }   
+	</script>
+</body>
+</html>
